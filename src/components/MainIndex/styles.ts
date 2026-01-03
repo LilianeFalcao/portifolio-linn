@@ -1,11 +1,11 @@
 "use client"
-import FundoEu from "@/public/Fundo1.png"
+import FundoEu from "@/assets/Fundo1.png"
 import styled from "styled-components"
 
 
 export const SectionInicial = styled.section`
     /* Adicione as aspas simples em volta da URL */
-    background-image: url('${props => FundoEu.src}'); 
+    background-image: url('${() => FundoEu.src}'); 
     background-size: cover;      
     background-position: center; 
     background-repeat: no-repeat; 
