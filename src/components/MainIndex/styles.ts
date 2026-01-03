@@ -1,5 +1,5 @@
 "use client"
-import FundoEu from "@/assets/Fundo1.png"
+import FundoEu from "@/public/Fundo1.png"
 import styled from "styled-components"
 
 
