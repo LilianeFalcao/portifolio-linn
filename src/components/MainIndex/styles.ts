@@ -31,7 +31,7 @@ export const Subtitulo = styled.h2`
 `
 
 export const BotoesIniciais = styled.div`
-    margin-top: 60vh; 
+    margin-top: 50vh; 
     display: flex;
     justify-content: center;
     align-items: center; 

@@ -18,6 +18,7 @@ import {
 } from "@/components/MainIndex/styles"
 
 import * as React from "react"
+
 import {
   Card,
   CardContent,
@@ -30,6 +31,8 @@ import {
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
+import StatusBadge from "@/components/statusBadge";
+import Skills from "@/components/skills";
 
 const projetos = [
   {
@@ -77,7 +80,8 @@ export default function Home() {
       <main>
         <SectionInicial className="relative">
           <Titulo>Linn de Oliveira Falcão</Titulo>
-          <Subtitulo>Desenvolvedor FullStack</Subtitulo>
+          <Subtitulo className="mb-2">Desenvolvedor FullStack</Subtitulo>
+          <StatusBadge />
           
           <BotoesIniciais>
             <button id="Contate" className="contato">Contate-me</button>
@@ -110,8 +114,11 @@ export default function Home() {
         </MenuLateral>
       {/*Seção Sobre */}
       <section className="flex flex-col items-center bg-[#ececec] py-10 px-4 mx-autoo">
-        <h3>Disponível para Novas Oportunidades</h3>
-        <h2>Técnico em Informática e Graduando em Sistemas de Informação</h2>
+        <h2 className="text-3xl font-bold mb-10 text-center">Sobre Mim</h2>
+        <h2 className="flex items-center gap-2 mb-6">
+          Sou formado como Técnico em Informática pelo Centro Federal de Educação Tecnológica de Minas Gerais (CEFET-MG), campus Varginha, onde tive a oportunidade de adquirir uma base sólida e desenvolver meus primeiros projetos. Busco oportunidades para aprofundar e aprimorar os conhecimentos adquiridos durante o curso técnico, ao mesmo tempo em que ganho experiência prática na área. Atualmente, curso o Bacharelado em Sistemas de Informação, também pelo CEFET-MG.
+        </h2>
+        <Skills />
       </section>
       {/*Seção de Formação */}
         <section className="py-20 px-4 max-w-7xl mx-auto">
@@ -214,12 +221,23 @@ export default function Home() {
       </section>
       </main>
       {/*Footer  */}
-      <footer className="flex flex-col items-center m-4">
-        <h1>© 2025 Todos os direitos reservados.</h1>
-        <h2>Técnico em Informática</h2>
-        <h3>Desenvolvido utilizando:</h3>
-        <p> NextJS</p>
-      </footer>
+      <footer className="flex flex-col items-center gap-3 m-8 text-center">
+      <div className="w-full max-w-2xl h-[1px] bg-gradient-to-r from-transparent via-zinc-700 to-transparent mb-4" />
+      <h2 className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-slate-900 font-bold">
+        Técnico em Informática
+      </h2>
+
+      <h1 className="text-sm text-slate-00">
+        <span className="font-semibold text-slate-900">Linn</span> © 2026 Todos os direitos reservados.
+      </h1>
+
+      <h1 className="text-xs text-slate-600 italic">
+        Desenvolvido utilizando: 
+        <span className="not-italic font-semibold text-[#6207FF] ml-1 hover:underline cursor-default">Next.js</span> 
+        <span className="not-italic text-slate-600 mx-2">•</span>
+        <span className="not-italic font-semibold text-[#6207FF] hover:underline cursor-default">Tailwind CSS</span>
+      </h1>
+    </footer>
     </>
   );
 }
