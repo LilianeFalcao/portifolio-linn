@@ -31,12 +31,18 @@ export const Subtitulo = styled.h2`
 `
 
 export const BotoesIniciais = styled.div`
-    margin-top: 50vh; 
+    margin-top: 40vh; 
     display: flex;
     justify-content: center;
     align-items: center; 
     padding: 20px;
-    gap: 8px;
+    gap: 16px;
+
+    @media (max-width: 768px) {
+        margin-top: 10vh; /* Reduz o espaço no topo em telas pequenas */
+        flex-direction: column; /* Coloca um botão embaixo do outro no celular */
+        gap: 12px;
+    }
 
     button{
         width: 200px;
