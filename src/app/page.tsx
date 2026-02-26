@@ -5,6 +5,7 @@ import linnCommerce from "@/assets/linnCommerce.png"
 import TheOwl from "@/assets/TheOwlHouse.png"
 import runas from "@/assets/Runas.png"
 import jornadaL from "@/assets/jornada.png"
+import wallpaper from "@/assets/wallpaper.png"
 import * as React from "react"
 
 import {
@@ -74,14 +75,18 @@ export default function Home() {
       <MenuLateral /> {/* Colocado fora do main para evitar conflitos de z-index */}
       
       <main className="overflow-x-hidden"> {/* Evita scroll horizontal indesejado */}
-        <SectionInicial className="relative min-h-screen flex flex-col justify-center items-center px-4">
+        <SectionInicial 
+          style={{ backgroundImage: `url(${wallpaper.src})` }}
+          className="relative min-h-screen flex flex-col justify-center items-center px-4 bg-cover bg-center">
           <Titulo className="text-center text-4xl md:text-6xl">Linn de Oliveira Falcão</Titulo>
           <Subtitulo className="mb-4 text-center">Desenvolvedor FullStack</Subtitulo>
           <StatusBadge />
           
           <BotoesIniciais className="flex flex-wrap justify-center gap-4 mt-8">
             <button id="Contate" className="contato">Contate-me</button>
-            <button className="curriculo">Currículo</button>
+            <a href="/Curriculo.pdf" download="Curriculo_Liliane_Oliveira_Falcao.pdf">
+              <button className="curriculo">Currículo</button>
+            </a>
           </BotoesIniciais>
 
           {/* Mouse Scroll - Escondido em telas pequenas */}
