@@ -5,14 +5,13 @@ import linnCommerce from "@/assets/linnCommerce.png"
 import TheOwl from "@/assets/TheOwlHouse.png"
 import runas from "@/assets/Runas.png"
 import jornadaL from "@/assets/jornada.png"
-import wallpaper from "@/assets/wallpaper.png"
+import Wallpaper from "@/assets/wallpaper.png"
 import * as React from "react"
 
 import {
   SectionInicial, 
   Titulo, 
   Subtitulo, 
-  BotoesIniciais, 
 } from "@/components/MainIndex/styles"
 
 import {
@@ -75,47 +74,90 @@ export default function Home() {
       <MenuLateral /> {/* Colocado fora do main para evitar conflitos de z-index */}
       
       <main className="overflow-x-hidden"> {/* Evita scroll horizontal indesejado */}
-        <SectionInicial 
-          style={{ backgroundImage: `url(${wallpaper.src})` }}
-          className="relative min-h-screen flex flex-col justify-center items-center px-4 bg-cover bg-center">
-          <Titulo className="text-center text-4xl md:text-6xl">Linn de Oliveira Falcão</Titulo>
-          <Subtitulo className="mb-4 text-center">Desenvolvedor FullStack</Subtitulo>
-          <StatusBadge />
+      <SectionInicial 
+        style={{ backgroundImage: `url(${Wallpaper.src})` }}
+        className="relative min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-start px-6 md:px-20 lg:px-32 bg-cover bg-center"
+      >
+        <div className="z-10 flex flex-col items-start max-w-xl"> 
+          <Titulo className="text-left text-4xl md:text-6xl lg:text-7xl text-black drop-shadow-lg">
+            Linn de <br className="hidden md:block" /> Oliveira Falcão
+          </Titulo>
           
-          <BotoesIniciais className="flex flex-wrap justify-center gap-4 mt-8">
-            <button id="Contate" className="contato">Contate-me</button>
+          <Subtitulo className="mt-2 mb-4 text-left text-white/90 text-xl md:text-2xl">
+            Desenvolvedor FullStack
+          </Subtitulo>
+          {/* O StatusBadge também seguirá o alinhamento à esquerda do pai */}
+          <StatusBadge />
+          <div className="mt-8 flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-4">
+            {/* Botão Contate-me - Vinho Sólido */}
+            <button 
+              id="Contate" 
+              className="w-[200px] h-[50px] rounded-[10px] bg-[#5C1D25] text-white font-bold transition-all hover:scale-105 cursor-pointer shadow-lg">
+              Contate-me
+            </button>
+            {/* Botão Currículo - Texto Branco e Borda Branca no Mobile */}
             <a href="/Curriculo.pdf" download="Curriculo_Liliane_Oliveira_Falcao.pdf">
-              <button className="curriculo">Currículo</button>
+              <button 
+                className="w-[200px] h-[50px] rounded-[10px] border-2 border-white md:border-[#5C1D25] text-white md:text-[#5C1D25] font-bold transition-all hover:bg-white hover:text-[#5C1D25] md:hover:bg-[#5C1D25] md:hover:text-white hover:scale-105 cursor-pointer">
+                Currículo
+              </button>
             </a>
-          </BotoesIniciais>
-
-          {/* Mouse Scroll - Escondido em telas pequenas */}
-          <div className="absolute bottom-10 right-10 hidden lg:flex flex-col items-center gap-2">
-            <div className="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
-            </div>
-            <span className="text-[10px] text-muted-foreground uppercase tracking-[0.2em] font-bold">
-              Scroll
-            </span>
           </div>
-        </SectionInicial>
+        </div>
+        {/* Mouse Scroll permanece na direita para equilibrar o layout */}
+        <div className="absolute bottom-10 right-10 hidden lg:flex flex-col items-center gap-2">
+          <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+          </div>
+          <span className="text-white/80 text-[10px] uppercase tracking-[0.2em] font-bold">
+            Scroll
+          </span>
+        </div>
+      </SectionInicial>
 
         {/* Seção Sobre */}
         <section className="flex flex-col items-center bg-[#ececec] py-16 px-6">
-          <div className="max-w-3xl w-full">
-            <h2 className="text-3xl font-bold mb-8 text-center text-slate-900">Sobre Mim</h2>
-            <p className="text-slate-700 leading-relaxed text-center md:text-lg mb-10 text-justify">
-              Sou formado como Técnico em Informática pelo Centro Federal de Educação Tecnológica de Minas Gerais (CEFET-MG), campus Varginha, onde tive a oportunidade de adquirir uma base sólida e desenvolver meus primeiros projetos. Busco oportunidades para aprofundar e aprimorar os conhecimentos adquiridos durante o curso técnico, ao mesmo tempo em que ganho experiência prática na área. Atualmente, curso o Bacharelado em Sistemas de Informação, também pelo CEFET-MG.
-            </p>
+          <div className="max-w-4xl w-full px-4 md:px-0">
+            {/* Título com a linha de design que usamos nas Skills */}
+            <div className="flex items-center gap-4 mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">
+                Sobre Mim
+              </h2>
+              <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
+            </div>
+
+            {/* Texto com destaques em Vinho para as tecnologias principais */}
+            <div className="text-slate-700 leading-relaxed text-left md:text-lg mb-12 space-y-6">
+              <p>
+                Sou formado como <span className="font-semibold text-slate-900">Técnico em Informática</span> pelo 
+                <span className="text-[#5C1D25] font-bold"> CEFET-MG (Campus Varginha)</span>, onde consolidei minha base em lógica e desenvolvi meus primeiros projetos com 
+                <span className="italic"> HTML, CSS, JS, C, C++ e PHP</span>.
+              </p>
+              
+              <p>
+                Atualmente, curso <span className="font-semibold text-slate-900">Bacharelado em Sistemas de Informação</span> também pelo CEFET-MG e foco meu desenvolvimento em tecnologias modernas como 
+                <span className="text-[#5C1D25] font-bold"> React.js, Next.js, Node.js e Python</span>. 
+              </p>
+
+              <p>
+                Tenho grande interesse na intersecção entre o <span className="font-semibold text-slate-900">desenvolvimento FullStack</span> e o 
+                <span className="text-[#5C1D25] font-bold"> design de interfaces (UX/UI)</span>, áreas que pratico constantemente através de projetos pessoais e acadêmicos.
+              </p>
+            </div>
+            {/* Componente de Skills já atualizado com o tom Vinho */}
             <Skills />
           </div>
         </section>
 
         {/* Seção de Projetos */}
         <section className="py-20 px-6 max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center text-slate-900">Projetos Desenvolvidos</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="flex items-center gap-4 mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">
+                Projetos Desenvolvidos
+              </h2>
+              <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
+            </div>          
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projetos.map((projeto) => (
               <Card key={projeto.id} className="overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 border-slate-200">
                 <div className="relative h-52 w-full">
@@ -150,7 +192,7 @@ export default function Home() {
                   </Button>
                   
                   {projeto.deploy && (
-                    <Button className="w-full bg-gradient-to-r from-[#6207FF] to-[#00A5CA] hover:opacity-90 transition-opacity" asChild>
+                    <Button className="w-full bg-gradient-to-r from-[#5C1D25] to-[#00A5CA] hover:opacity-90 transition-opacity" asChild>
                       <a href={projeto.deploy} target="_blank" rel="noreferrer">Ver Demo</a>
                     </Button>
                   )}
@@ -205,21 +247,21 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="flex flex-col items-center gap-3 py-12 px-6 text-center border-t border-slate-200">
+      <footer className="flex flex-col items-center gap-3 py-12 px-6 text-center border-t border-slate-200 bg-[#5C1D25]">
         <div className="w-full max-w-2xl h-[1px] bg-gradient-to-r from-transparent via-slate-300 to-transparent mb-4" />
-        <h2 className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold">
+        <h2 className="text-[10px] uppercase tracking-[0.3em] text-white font-bold">
           Técnico em Informática
         </h2>
         <h1 
           suppressHydrationWarning 
-          className="text-sm text-slate-600">
-          <span className="font-semibold text-slate-900">Linn</span> © 2026 Todos os direitos reservados.
+          className="text-sm text-white/80">
+          <span className="font-semibold text-white/80">Linn</span> © 2026 Todos os direitos reservados.
         </h1>
-        <h1 className="text-xs text-slate-500 italic">
+        <h1 className="text-xs text-white/70 italic">
           Desenvolvido utilizando: 
-          <span className="not-italic font-semibold text-[#6207FF] ml-1">Next.js</span> 
-          <span className="mx-2">•</span>
-          <span className="not-italic font-semibold text-[#6207FF]">Tailwind CSS</span>
+          <span className="not-italic font-bold text-[#C84C58] ml-1 drop-shadow-sm">Next.js</span> 
+          <span className="mx-2 text-white/30">•</span>
+          <span className="not-italic font-bold text-[#C84C58] drop-shadow-sm">Tailwind CSS</span>
         </h1>
       </footer>
     </>

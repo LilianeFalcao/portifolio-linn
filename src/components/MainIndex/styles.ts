@@ -29,37 +29,6 @@ export const Subtitulo = styled.h2`
     text-align: center;
     color: #636363;
 `
-
-export const BotoesIniciais = styled.div`
-    margin-top: 40vh; 
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    padding: 20px;
-    gap: 16px;
-
-    @media (max-width: 768px) {
-        margin-top: 10vh; /* Reduz o espaço no topo em telas pequenas */
-        flex-direction: column; /* Coloca um botão embaixo do outro no celular */
-        gap: 12px;
-    }
-
-    button{
-        width: 200px;
-        height: 50px;
-        border-radius: 10px;
-        border: none;
-        background: linear-gradient(to right, #6207FF, #1E0773, #00A5CA);
-        color: white;
-        font-size: 1rem;
-        font-weight: bold;
-            &:hover{
-                cursor: pointer;
-                transform: scale(1.05);
-            }
-        }
-`
-
 export const MenuLateral = styled.aside`
     position: fixed;
     top: 0;
