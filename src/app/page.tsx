@@ -83,10 +83,10 @@ export default function Home() {
         >
         <div>
           <div className="z-10 flex flex-col items-start w-full max-w-xl mb-16 md:mb-0 -translate-y-12 md:translate-y-0"> 
-          <Titulo className="text-left text-3xl md:text-6xl lg:text-7xl text-white drop-shadow-lg leading-tight">
+          <Titulo className="text-left text-3xl md:text-6xl lg:text-7xl text-black drop-shadow-lg leading-tight">
             Linn de <br className="hidden md:block" /> Oliveira Falcão
           </Titulo>
-          <Subtitulo className="mt-1 mb-3 text-left text-white/80 text-lg md:text-2xl font-medium">
+          <Subtitulo className="mt-1 mb-3 text-left text-white/80 text-lg md:text-2xl text-white font-medium">
             Desenvolvedor FullStack
           </Subtitulo>
           {/* O StatusBadge também seguirá o alinhamento à esquerda do pai */}
