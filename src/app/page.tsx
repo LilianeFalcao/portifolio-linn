@@ -6,6 +6,7 @@ import TheOwl from "@/assets/TheOwlHouse.png"
 import runas from "@/assets/Runas.png"
 import jornadaL from "@/assets/jornada.png"
 import Wallpaper from "@/assets/wallpaper.png"
+import WallpaperMobile from "@/assets/wallpaper_mobile.png"
 import * as React from "react"
 
 import {
@@ -71,13 +72,15 @@ const projetos = [
 export default function Home() {
   return (
     <>
-      <MenuLateral /> {/* Colocado fora do main para evitar conflitos de z-index */}
-      
+      <MenuLateral /> {/* Colocado fora do main para evitar conflitos de z-index */}    
       <main className="overflow-x-hidden"> {/* Evita scroll horizontal indesejado */}
-      <SectionInicial 
-        style={{ backgroundImage: `url(${Wallpaper.src})` }}
-        className="relative min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-start px-6 md:px-20 lg:px-32 bg-cover bg-center"
-      >
+    <SectionInicial 
+          style={{ 
+            '--bg-desktop': `url(${Wallpaper.src})`,
+            '--bg-mobile': `url(${WallpaperMobile.src})` 
+          } as React.CSSProperties}
+          className="relative min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-start px-6 md:px-20 lg:px-32 bg-cover bg-center bg-[image:var(--bg-mobile)] md:bg-[image:var(--bg-desktop)]"
+        >
         <div className="z-10 flex flex-col items-start max-w-xl"> 
           <Titulo className="text-left text-4xl md:text-6xl lg:text-7xl text-black drop-shadow-lg">
             Linn de <br className="hidden md:block" /> Oliveira Falcão
