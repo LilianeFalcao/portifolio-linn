@@ -98,13 +98,11 @@ export default function Home() {
               </div>
             {/* Bloco de Botões */}
             <div className="mt-8 flex flex-col md:flex-row items-center md:items-start gap-4 w-full md:w-auto">
-              <button 
-                id="Contate" 
-                className="w-[200px] h-[50px] rounded-[10px] bg-[#5C1D25] text-white font-bold transition-all hover:scale-105 cursor-pointer shadow-lg"
-              >
+              <a href="mailto:linnyohan@gmail.com" target="_blank" >
+                <button className="w-[200px] h-[50px] rounded-[10px] bg-[#5C1D25] text-white font-bold transition-all hover:scale-105 cursor-pointer shadow-lg">
                 Contate-me
               </button>
-
+              </a>
               <a href="/Curriculo.pdf" download="Curriculo_Liliane_Oliveira_Falcao.pdf" className="w-full md:w-auto">
                 <button 
                   className="w-full md:w-[200px] h-[50px] rounded-[10px] 
