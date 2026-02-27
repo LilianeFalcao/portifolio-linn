@@ -16,7 +16,7 @@ const SkillBadge = ({ text, isHighlight }: SkillBadgeProps) => (
 );
 
 export default function Skills() {
-  const highlights = ["ReactJS", "ReactNative", "Next.js", "Tailwind CSS", "Python", "JavaScript"];
+  const highlights = ["ReactJS", "ReactNative", "Next.js", "Tailwind CSS", "Python", "JavaScript", "SQL"];
   const hardSkills = ["Node.js", "REST API", "Figma", "POSTMAN", "Git/Github"];
   const softSkills = ["Trabalho em Equipe", "Resolução de Problemas", "Adaptabilidade", "Organização"];
 
