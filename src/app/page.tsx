@@ -72,57 +72,69 @@ const projetos = [
 export default function Home() {
   return (
     <>
-      <MenuLateral /> {/* Colocado fora do main para evitar conflitos de z-index */}    
-      <main className="overflow-x-hidden"> {/* Evita scroll horizontal indesejado */}
-      <SectionInicial 
+    <MenuLateral /> 
+      <main className="overflow-x-hidden">
+        {/* SEÇÃO INICIAL / HERO */}
+        <SectionInicial 
           style={{ 
             '--bg-desktop': `url(${Wallpaper.src})`,
             '--bg-mobile': `url(${WallpaperMobile.src})` 
           } as React.CSSProperties}
-          className="relative min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-start px-6 md:px-20 lg:px-32 bg-cover bg-center bg-[image:var(--bg-mobile)] md:bg-[image:var(--bg-desktop)]"
+          className="md:pl-24 lg:pl-32 relative min-h-screen flex flex-col items-center justify-end md:justify-center md:items-start px-6 md:px-20 lg:px-32 bg-cover bg-center bg-[image:var(--bg-mobile)] md:bg-[image:var(--bg-desktop)] pb-16 md:pb-0"
         >
-        <div>
-          <div className="z-10 flex flex-col items-start w-full max-w-xl mb-16 md:mb-0 -translate-y-12 md:translate-y-0"> 
-          <Titulo className="text-left text-3xl md:text-6xl lg:text-7xl text-black drop-shadow-lg leading-tight">
-            Linn de <br className="hidden md:block" /> Oliveira Falcão
-          </Titulo>
-          <Subtitulo className="mt-1 mb-3 text-left text-white/80 text-lg md:text-2xl text-white font-medium">
-            Desenvolvedor FullStack
-          </Subtitulo>
-          {/* O StatusBadge também seguirá o alinhamento à esquerda do pai */}
-          <StatusBadge />
-        </div>
-        <div className="mt-8 flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-4">
-            {/* Botão Contate-me - Vinho Sólido */}
-            <button 
-              id="Contate" 
-              className="w-[200px] h-[50px] rounded-[10px] bg-[#5C1D25] text-white font-bold transition-all hover:scale-105 cursor-pointer shadow-lg">
-              Contate-me
-            </button>
-            {/* Botão Currículo - Texto Branco e Borda Branca no Mobile */}
-            <a href="/Curriculo.pdf" download="Curriculo_Liliane_Oliveira_Falcao.pdf">
+          {/* Container Unificado de Texto e Botões */}
+          <div className="z-10 flex flex-col items-center md:items-start w-full md:max-w-xl lg:max-w-2xl mb-16 md:mb-0 -translate-y-12 md:translate-y-0">            
+            <div className="w-full md:max-w-[40%]">
+              <Titulo className="text-center md:text-left text-3xl md:text-6xl lg:text-7xl text-white md:text-[#1a1a1a] drop-shadow-lg leading-tight">
+                Linn de <br className="hidden md:block" /> Oliveira Falcão
+              </Titulo>
+              
+              <Subtitulo className="mt-1 mb-3 text-center md:text-left text-white/80 md:text-[#333] text-lg md:text-2xl font-medium">
+                Desenvolvedor FullStack
+              </Subtitulo>
+              </div>
+              <div className="flex justify-center md:justify-start">
+                <StatusBadge/>
+              </div>
+            {/* Bloco de Botões */}
+            <div className="mt-8 flex flex-col md:flex-row items-center md:items-start gap-4 w-full md:w-auto">
               <button 
-                className="w-[200px] h-[50px] rounded-[10px] border-2 border-white md:border-[#5C1D25] text-white md:text-[#5C1D25] font-bold transition-all hover:bg-white hover:text-[#5C1D25] md:hover:bg-[#5C1D25] md:hover:text-white hover:scale-105 cursor-pointer">
-                Currículo
+                id="Contate" 
+                className="w-[200px] h-[50px] rounded-[10px] bg-[#5C1D25] text-white font-bold transition-all hover:scale-105 cursor-pointer shadow-lg"
+              >
+                Contate-me
               </button>
-            </a>
-          </div>
-        </div>
-        {/* Mouse Scroll permanece na direita para equilibrar o layout */}
-        <div className="absolute bottom-10 right-10 hidden lg:flex flex-col items-center gap-2">
-          <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
-          </div>
-          <span className="text-white/80 text-[10px] uppercase tracking-[0.2em] font-bold">
-            Scroll
-          </span>
-        </div>
-      </SectionInicial>
 
-        {/* Seção Sobre */}
+              <a href="/Curriculo.pdf" download="Curriculo_Liliane_Oliveira_Falcao.pdf" className="w-full md:w-auto">
+                <button 
+                  className="w-full md:w-[200px] h-[50px] rounded-[10px] 
+                  border-2 border-white md:border-[#5C1D25] 
+                  text-white md:text-[#5C1D25] 
+                  font-bold transition-all 
+                  hover:bg-white hover:text-[#5C1D25] 
+                  md:hover:bg-[#5C1D25] md:hover:text-white 
+                  hover:scale-105 cursor-pointer"
+                >
+                  Currículo
+                </button>
+              </a>
+            </div>
+          </div>
+
+          {/* Mouse Scroll */}
+          <div className="absolute bottom-10 right-10 hidden lg:flex flex-col items-center gap-2">
+            <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+            </div>
+            <span className="text-white/80 text-[10px] uppercase tracking-[0.2em] font-bold">
+              Scroll
+            </span>
+          </div>
+        </SectionInicial>
+
+        {/* SEÇÃO SOBRE */}
         <section className="flex flex-col items-center bg-[#ececec] py-16 px-6">
           <div className="max-w-4xl w-full px-4 md:px-0">
-            {/* Título com a linha de design que usamos nas Skills */}
             <div className="flex items-center gap-4 mb-8">
               <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">
                 Sobre Mim
@@ -130,73 +142,55 @@ export default function Home() {
               <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
             </div>
 
-            {/* Texto com destaques em Vinho para as tecnologias principais */}
             <div className="text-slate-700 leading-relaxed text-left md:text-lg mb-12 space-y-6">
               <p>
                 Sou formado como <span className="font-semibold text-slate-900">Técnico em Informática</span> pelo 
-                <span className="text-[#5C1D25] font-bold"> CEFET-MG (Campus Varginha)</span>, onde consolidei minha base em lógica e desenvolvi meus primeiros projetos com 
-                <span className="italic"> HTML, CSS, JS, C, C++ e PHP</span>.
+                <span className="text-[#5C1D25] font-bold"> CEFET-MG (Campus Varginha)</span>, onde consolidei minha base em lógica e desenvolvi meus primeiros projetos.
               </p>
-              
               <p>
                 Atualmente, curso <span className="font-semibold text-slate-900">Bacharelado em Sistemas de Informação</span> também pelo CEFET-MG e foco meu desenvolvimento em tecnologias modernas como 
                 <span className="text-[#5C1D25] font-bold"> React.js, Next.js, Node.js e Python</span>. 
               </p>
-
               <p>
                 Tenho grande interesse na intersecção entre o <span className="font-semibold text-slate-900">desenvolvimento FullStack</span> e o 
-                <span className="text-[#5C1D25] font-bold"> design de interfaces (UX/UI)</span>, áreas que pratico constantemente através de projetos pessoais e acadêmicos.
+                <span className="text-[#5C1D25] font-bold"> design de interfaces (UX/UI)</span>.
               </p>
             </div>
-            {/* Componente de Skills já atualizado com o tom Vinho */}
             <Skills />
           </div>
         </section>
 
-        {/* Seção de Projetos */}
+        {/* SEÇÃO PROJETOS */}
         <section className="py-20 px-6 max-w-7xl mx-auto">
-            <div className="flex items-center gap-4 mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">
-                Projetos Desenvolvidos
-              </h2>
-              <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
-            </div>          
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex items-center gap-4 mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">
+              Projetos Desenvolvidos
+            </h2>
+            <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
+          </div>          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projetos.map((projeto) => (
               <Card key={projeto.id} className="overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 border-slate-200">
                 <div className="relative h-52 w-full">
-                  <Image 
-                    src={projeto.imagem} 
-                    alt={projeto.titulo} 
-                    fill 
-                    className="object-cover transition-transform duration-500 hover:scale-105"
-                  />
+                  <Image src={projeto.imagem} alt={projeto.titulo} fill className="object-cover transition-transform duration-500 hover:scale-105" />
                 </div>
-
                 <CardHeader className="pb-2">
                   <CardTitle className="text-xl">{projeto.titulo}</CardTitle>
                   <div className="flex flex-wrap gap-2 mt-2">
                     {projeto.tags.map(tag => (
-                      <span key={tag} className="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded-md uppercase font-bold border border-slate-200">
-                        {tag}
-                      </span>
+                      <span key={tag} className="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded-md uppercase font-bold border border-slate-200">{tag}</span>
                     ))}
                   </div>
                 </CardHeader>
-
                 <CardContent className="flex-grow">
-                  <CardDescription className="text-slate-600">
-                    {projeto.descricao}
-                  </CardDescription>
+                  <CardDescription className="text-slate-600">{projeto.descricao}</CardDescription>
                 </CardContent>
-
                 <CardFooter className="flex justify-between gap-4 pt-4">
                   <Button variant="outline" className="w-full border-slate-300" asChild>
                     <a href={projeto.github} target="_blank" rel="noreferrer">GitHub</a>
                   </Button>
-                  
                   {projeto.deploy && (
-                    <Button className="w-full bg-gradient-to-r from-[#5C1D25] to-[#00A5CA] hover:opacity-90 transition-opacity" asChild>
+                    <Button className="w-full bg-[#5C1D25] hover:opacity-90 transition-opacity text-white" asChild>
                       <a href={projeto.deploy} target="_blank" rel="noreferrer">Ver Demo</a>
                     </Button>
                   )}
@@ -205,7 +199,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
         {/* Seção de Contatos */}
         <section className="flex flex-col items-center bg-[#ececec] py-20 px-6">
           <h1 className="text-3xl md:text-4xl font-bold mb-2 text-center">Vamos trabalhar juntos.</h1>
