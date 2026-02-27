@@ -16,8 +16,8 @@ const SkillBadge = ({ text, isHighlight }: SkillBadgeProps) => (
 );
 
 export default function Skills() {
-  const highlights = ["ReactJS", "Next.js", "Tailwind CSS", "Python"];
-  const hardSkills = ["Node.js", "REST API", "Figma"];
+  const highlights = ["ReactJS", "ReactNative", "Next.js", "Tailwind CSS", "Python", "JavaScript"];
+  const hardSkills = ["Node.js", "REST API", "Figma", "POSTMAN", "Git/Github"];
   const softSkills = ["Trabalho em Equipe", "Resolução de Problemas", "Adaptabilidade", "Organização"];
 
   return (
@@ -28,7 +28,7 @@ export default function Skills() {
           <div className="max-w-2xl text-left">
             <h3 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">Hard Skills</h3>
             <p className="text-slate-600 leading-relaxed">
-              Durante minha formação no curso técnico e na graduação no CEFET-MG, tive contato com diversas linguagens; 
+              Durante minha formação no curso técnico e na graduação no CEFET-MG, tive contato com diversas linguagens e ferramentas de desenvolvimento;
               entretanto, possuo maior familiaridade com:
             </p>
           </div>
