@@ -201,49 +201,37 @@ export default function Home() {
         </section>
         {/* Seção de Contatos */}
         <section className="flex flex-col items-center bg-[#ececec] py-20 px-6">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-center">Vamos trabalhar juntos.</h1>
-          <h2 className="text-lg text-muted-foreground mb-10">Informações de Contato</h2>
-          
-          <Card className="w-full max-w-2xl shadow-lg border-none">
-            <CardHeader>
-              <CardTitle>Mande uma mensagem</CardTitle>
-              <CardDescription>
-                Estou sempre aberto a novas oportunidades. Respondo rapidinho!
-              </CardDescription>
-            </CardHeader>
-            
-            <CardContent>
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}> 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="nome" className="text-sm font-medium">Nome</label>
-                    <Input id="nome" placeholder="Seu nome" required />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="sobrenome" className="text-sm font-medium">Sobrenome</label>
-                    <Input id="sobrenome" placeholder="Seu sobrenome" required />
-                  </div>
-                </div>
+          <div className="flex items-center gap-4 mb-12 w-full max-w-4xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">Contato</h2>
+            <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
+          </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">E-mail</label>
-                  <Input id="email" type="email" placeholder="seu@email.com" required />
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+            {/* Bloco de Texto Chamativo */}
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-[#5C1D25]">Vamos conversar?</h3>
+              <p className="text-slate-600">
+                Estou sempre aberto a novos projetos e colaborações, especialmente na intersecção entre 
+                <span className="text-[#5C1D25] font-semibold"> Desenvolvimento e Design</span>.
+              </p>
+            </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="mensagem" className="text-sm font-medium">Mensagem</label>
-                  <Textarea id="mensagem" placeholder="Sua mensagem aqui..." required className="min-h-[120px]" />
-                </div>
-
-                <Button type="submit" className="w-full bg-slate-900 hover:bg-slate-800 transition-colors py-6 text-lg">
-                  Enviar Mensagem
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+            {/* Links Diretos (Estilo Cartão) */}
+            <div className="flex flex-col gap-4">
+              <a href="mailto:linnyohan@gmail.com" target="_blank"
+                className="flex items-center gap-3 p-4 bg-white border-l-4 border-[#5C1D25] rounded-r-lg shadow-sm hover:translate-x-2 transition-transform">
+                <span className="font-bold text-[#5C1D25]">Email:</span>
+                <span className="text-slate-700 font-medium">linnyohan@gmail.com</span>
+              </a>
+              <a 
+                className="flex items-center gap-3 p-4 bg-white border-l-4 border-[#5C1D25] rounded-r-lg shadow-sm hover:translate-x-2 transition-transform">
+                <span className="font-bold text-[#5C1D25]">Tel/Whatsapp:</span>
+                <span className="text-slate-700 font-medium">(35)9999-9999</span>
+              </a>
+            </div>
+          </div>
         </section>
       </main>
-
       <footer className="flex flex-col items-center gap-3 py-12 px-6 text-center border-t border-slate-200 bg-[#5C1D25]">
         <div className="w-full max-w-2xl h-[1px] bg-gradient-to-r from-transparent via-slate-300 to-transparent mb-4" />
         <h2 className="text-[10px] uppercase tracking-[0.3em] text-white font-bold">
