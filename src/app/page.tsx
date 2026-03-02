@@ -25,8 +25,6 @@ import {
 } from "@/components/ui/card"
 
 import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
-import { Input } from "@/components/ui/input"
 import StatusBadge from "@/components/statusBadge";
 import Skills from "@/components/skills";
 import MenuLateral from "@/components/asideMenuBar";
@@ -98,8 +96,9 @@ export default function Home() {
               </div>
             {/* Bloco de Botões */}
             <div className="mt-8 flex flex-col md:flex-row items-center md:items-start gap-4 w-full md:w-auto">
-              <a href="mailto:linnyohan@gmail.com" target="_blank" >
-                <button className="w-[200px] h-[50px] rounded-[10px] bg-[#5C1D25] text-white font-bold transition-all hover:scale-105 cursor-pointer shadow-lg">
+              <a href="mailto:linnyohan@gmail.com" target="_blank"  className="w-full md:w-auto">
+                <button 
+                className="w-full md:w-[200px] h-[50px] rounded-[10px] bg-[#5C1D25] text-white font-bold transition-all hover:scale-105 cursor-pointer shadow-lg">
                 Contate-me
               </button>
               </a>
@@ -224,7 +223,7 @@ export default function Home() {
               <a 
                 className="flex items-center gap-3 p-4 bg-white border-l-4 border-[#5C1D25] rounded-r-lg shadow-sm hover:translate-x-2 transition-transform">
                 <span className="font-bold text-[#5C1D25]">Tel/Whatsapp:</span>
-                <span className="text-slate-700 font-medium">(35)9999-9999</span>
+                <span className="text-slate-700 font-medium">(35)98705-3757</span>
               </a>
             </div>
           </div>
