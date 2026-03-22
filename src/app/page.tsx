@@ -72,7 +72,6 @@ export default function Home() {
     <>
     <MenuLateral /> 
       <main className="overflow-x-hidden">
-        {/* SEÇÃO INICIAL / HERO */}
         <SectionInicial 
           style={{ 
             '--bg-desktop': `url(${Wallpaper.src})`,
@@ -88,7 +87,7 @@ export default function Home() {
               </Titulo>
               
               <Subtitulo className="mt-1 mb-3 text-center md:text-left text-white/80 md:text-[#333] text-lg md:text-2xl font-medium">
-                Desenvolvedor FullStack
+                Full stack Developer
               </Subtitulo>
               </div>
               <div className="flex justify-center md:justify-start">
@@ -141,7 +140,7 @@ export default function Home() {
 
             <div className="text-slate-700 leading-relaxed text-left md:text-lg mb-12 space-y-6">
               <p>
-                Sou formado como <span className="font-semibold text-slate-900">Técnico em Informática</span> pelo 
+                Me formei como <span className="font-semibold text-slate-900">Técnico em Informática</span> pelo 
                 <span className="text-[#5C1D25] font-bold"> CEFET-MG (Campus Varginha)</span>, onde consolidei minha base em lógica e desenvolvi meus primeiros projetos.
               </p>
               <p>
@@ -208,22 +207,26 @@ export default function Home() {
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-[#5C1D25]">Vamos conversar?</h3>
               <p className="text-slate-600">
-                Estou sempre aberto a novos projetos e colaborações, especialmente na intersecção entre 
+                Tenho total disponibilidade para novos projetos e colaborações, especialmente na intersecção entre 
                 <span className="text-[#5C1D25] font-semibold"> Desenvolvimento e Design</span>.
               </p>
             </div>
 
             {/* Links Diretos (Estilo Cartão) */}
             <div className="flex flex-col gap-4">
-              <a href="mailto:linnyohan@gmail.com" target="_blank"
+              <a href="mailto:lilianefalcao2293@gmail.com" target="_blank"
                 className="flex items-center gap-3 p-4 bg-white border-l-4 border-[#5C1D25] rounded-r-lg shadow-sm hover:translate-x-2 transition-transform">
                 <span className="font-bold text-[#5C1D25]">Email:</span>
-                <span className="text-slate-700 font-medium">linnyohan@gmail.com</span>
+                <span className="text-slate-700 font-medium">lilianefalcao2293@gmail.com</span>
               </a>
               <a 
-                className="flex items-center gap-3 p-4 bg-white border-l-4 border-[#5C1D25] rounded-r-lg shadow-sm hover:translate-x-2 transition-transform">
+                href="https://wa.me/5535987053757" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 p-4 bg-white border-l-4 border-[#5C1D25] rounded-r-lg shadow-sm hover:translate-x-2 transition-transform"
+                >
                 <span className="font-bold text-[#5C1D25]">Tel/Whatsapp:</span>
-                <span className="text-slate-700 font-medium">(35)98705-3757</span>
+                <span className="text-slate-700 font-medium">Clique aqui e vá ao Whatsapp</span>
               </a>
             </div>
           </div>
