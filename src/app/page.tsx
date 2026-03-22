@@ -214,10 +214,10 @@ export default function Home() {
 
             {/* Links Diretos (Estilo Cartão) */}
             <div className="flex flex-col gap-4">
-              <a href="mailto:lilianefalcao2293@gmail.com" target="_blank"
+              <a href="mailto:falcao.licontato@gmail.com" target="_blank"
                 className="flex items-center gap-3 p-4 bg-white border-l-4 border-[#5C1D25] rounded-r-lg shadow-sm hover:translate-x-2 transition-transform">
                 <span className="font-bold text-[#5C1D25]">Email:</span>
-                <span className="text-slate-700 font-medium">lilianefalcao2293@gmail.com</span>
+                <span className="text-slate-700 font-medium">falcao.licontato@gmail.com</span>
               </a>
               <a 
                 href="https://wa.me/5535987053757" 
