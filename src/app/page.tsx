@@ -5,6 +5,7 @@ import linnCommerce from "@/assets/linnCommerce.png"
 import TheOwl from "@/assets/TheOwlHouse.png"
 import runas from "@/assets/Runas.png"
 import jornadaL from "@/assets/jornada.png"
+import Bambole from "@/assets/bambole.jpg"
 import Wallpaper from "@/assets/wallpaper.png"
 import WallpaperMobile from "@/assets/wallpaper_mobile.png"
 import * as React from "react"
@@ -67,6 +68,19 @@ const projetos = [
   },
 ];
 
+const desenvolvimento = [
+  {
+    id: 1,
+    titulo: "Bambolê - App",
+    descricao: "Iniciativa de Alana Lopes Matos (UFS) em conjunto com minha autoria, estabelecendo a aplicação Bambolê como solução móvel.",
+    imagem: Bambole,
+    tags: ["React-Native", "Expo", "SQLite", "Supabase"],
+    github: "https://github.com/LilianeFalcao/labAplicacoesMoveis",
+    deploy: "https://github.com/LilianeFalcao/labAplicacoesMoveis",
+    contatoParceira: "https://www.linkedin.com/in/alana-lopes-581366312/"
+  }
+];
+
 export default function Home() {
   return (
     <>
@@ -95,7 +109,7 @@ export default function Home() {
               </div>
             {/* Bloco de Botões */}
             <div className="mt-8 flex flex-col md:flex-row items-center md:items-start gap-4 w-full md:w-auto">
-              <a href="mailto:linnyohan@gmail.com" target="_blank"  className="w-full md:w-auto">
+              <a href="mailto:falcao.licontato@gmail.com" target="_blank"  className="w-full md:w-auto">
                 <button 
                 className="w-full md:w-[200px] h-[50px] rounded-[10px] bg-[#5C1D25] text-white font-bold transition-all hover:scale-105 cursor-pointer shadow-lg">
                 Contate-me
@@ -160,6 +174,59 @@ export default function Home() {
         <section className="py-20 px-6 max-w-7xl mx-auto">
           <div className="flex items-center gap-4 mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">
+              Projetos em Desenvolvimento
+            </h2>
+            <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
+          </div>          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {desenvolvimento.map((items) => (
+              <Card key={items.id} className="overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 border-slate-200">
+                <div className="relative h-52 w-full">
+                  <Image src={items.imagem} alt={items.titulo} fill className="object-cover transition-transform duration-500 hover:scale-105" />
+                </div>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-xl">{items.titulo}</CardTitle>
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {items.tags.map(tag => (
+                      <span key={tag} className="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded-md uppercase font-bold border border-slate-200">{tag}</span>
+                    ))}
+                  </div>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <CardDescription className="text-slate-600">{items.descricao}</CardDescription>
+                </CardContent>
+                <CardFooter className="flex flex-col gap-3 pt-4">
+                  <div className="flex gap-4 w-full">
+                    {items.contatoParceira ? (
+                      <Button 
+                        className="w-full bg-[#5C1D25] hover:opacity-90 transition-opacity text-white" 
+                        asChild
+                      >
+                        <a href={items.contatoParceira} target="_blank" rel="noreferrer">
+                          Contatar Alana
+                        </a>
+                      </Button>
+                    ) : (
+                      items.deploy && (
+                        <Button 
+                          className="w-full bg-[#5C1D25] hover:opacity-90 transition-opacity text-white" 
+                          asChild
+                        >
+                          <a href={items.deploy} target="_blank" rel="noreferrer">Ver Demo</a>
+                        </Button>
+                      )
+                    )}
+                  </div>
+                  <Button variant="outline" className="w-full border-slate-300" asChild>
+                    <a href={items.github} target="_blank" rel="noreferrer">Seu GitHub</a>
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+          {/* SEÇÃO PROJETOS DESENVOLVIDOS */}
+          <div className="flex items-center gap-4 mb-12 mt-9">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">
               Projetos Desenvolvidos
             </h2>
             <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
@@ -201,9 +268,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">Contato</h2>
             <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
-            {/* Bloco de Texto Chamativo */}
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-[#5C1D25]">Vamos conversar?</h3>
               <p className="text-slate-600">
@@ -211,8 +276,6 @@ export default function Home() {
                 <span className="text-[#5C1D25] font-semibold"> Desenvolvimento e Design</span>.
               </p>
             </div>
-
-            {/* Links Diretos (Estilo Cartão) */}
             <div className="flex flex-col gap-4">
               <a href="mailto:falcao.licontato@gmail.com" target="_blank"
                 className="flex items-center gap-3 p-4 bg-white border-l-4 border-[#5C1D25] rounded-r-lg shadow-sm hover:translate-x-2 transition-transform">
