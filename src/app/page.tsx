@@ -8,6 +8,7 @@ import jornadaL from "@/assets/jornada.png"
 import Bambole from "@/assets/bambole.jpg"
 import Wallpaper from "@/assets/wallpaper.png"
 import WallpaperMobile from "@/assets/wallpaper_mobile.png"
+import linkedin from "@/assets/linkedin.svg"
 import * as React from "react"
 
 import {
@@ -72,11 +73,12 @@ const desenvolvimento = [
   {
     id: 1,
     titulo: "Bambolê - App",
-    descricao: "Iniciativa de Alana Lopes Matos (UFS) em conjunto com minha autoria, estabelecendo a aplicação Bambolê como solução móvel.",
+    descricao: "Iniciativa de Alana Lopes Matos (UFS) em conjunto com minha autoria, estabelecemos o app Bambolê como solução móvel.",
     imagem: Bambole,
     tags: ["React-Native", "Expo", "SQLite", "Supabase"],
     github: "https://github.com/LilianeFalcao/labAplicacoesMoveis",
     deploy: "https://github.com/LilianeFalcao/labAplicacoesMoveis",
+    portfolioParceira: "https://msha.ke/piitulas",
     contatoParceira: "https://www.linkedin.com/in/alana-lopes-581366312/"
   }
 ];
@@ -169,99 +171,143 @@ export default function Home() {
             <Skills />
           </div>
         </section>
-
-        {/* SEÇÃO PROJETOS */}
-        <section className="py-20 px-6 max-w-7xl mx-auto">
-          <div className="flex items-center gap-4 mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">
-              Projetos em Desenvolvimento
-            </h2>
-            <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
-          </div>          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {desenvolvimento.map((items) => (
-              <Card key={items.id} className="overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 border-slate-200">
-                <div className="relative h-52 w-full">
-                  <Image src={items.imagem} alt={items.titulo} fill className="object-cover transition-transform duration-500 hover:scale-105" />
-                </div>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-xl">{items.titulo}</CardTitle>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {items.tags.map(tag => (
-                      <span key={tag} className="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded-md uppercase font-bold border border-slate-200">{tag}</span>
-                    ))}
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <CardDescription className="text-slate-600">{items.descricao}</CardDescription>
-                </CardContent>
-                <CardFooter className="flex flex-col gap-3 pt-4">
-                  <div className="flex gap-4 w-full">
-                    {items.contatoParceira ? (
+          {/* SEÇÃO PROJETOS */}
+<section className="py-20 px-6 max-w-7xl mx-auto">
+  
+  {/* CABEÇALHO: PROJETOS EM DESENVOLVIMENTO */}
+  <div className="flex items-center gap-4 mb-12">
+    <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">
+      Projetos em Desenvolvimento
+    </h2>
+    <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
+  </div>          
+  
+      {/* GRID: PROJETOS EM DESENVOLVIMENTO */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {desenvolvimento.map((items) => (
+          <Card key={items.id} className="overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 border-slate-200">
+            <div className="relative h-52 w-full">
+              <Image src={items.imagem} alt={items.titulo} fill className="object-cover transition-transform duration-500 hover:scale-105" />
+            </div>
+            
+            <CardHeader className="pb-2">
+              <CardTitle className="text-xl">{items.titulo}</CardTitle>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {items.tags.map(tag => (
+                  <span key={tag} className="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded-md uppercase font-bold border border-slate-200">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </CardHeader>
+            
+            <CardContent className="flex-grow">
+              <CardDescription className="text-slate-600">{items.descricao}</CardDescription>
+            </CardContent>
+            
+            {/* FOOTER ALTERADO COM A SEÇÃO DA PARCEIRA */}
+            <CardFooter className="flex flex-col gap-3 pt-4">
+              
+              {/* Seção Exclusiva da Parceira (Alana) */}
+              {items.contatoParceira && (
+                <div className="flex flex-col gap-2 w-full bg-slate-50 p-3 rounded-lg border border-slate-100">
+                  <span className="text-[10px] font-bold text-slate-500 uppercase text-center tracking-wider">
+                    Co-criadora: Alana Lopes Matos
+                  </span>
+                  <div className="flex gap-2 w-full">
+                    <Button 
+                      className="w-full bg-[#5C1D25] hover:opacity-90 transition-opacity text-white text-xs h-9" 
+                      asChild
+                    >
+                      <a href={items.contatoParceira} target="_blank" rel="noreferrer">
+                        <Image src={linkedin} alt="linkedin icon" width={17} height={17} className="opacity-90 invert" />
+                        Contate Alana
+                      </a>
+                    </Button>
+                    
+                    {items.portfolioParceira && (
                       <Button 
-                        className="w-full bg-[#5C1D25] hover:opacity-90 transition-opacity text-white" 
+                        variant="outline" 
+                        className="w-full border-[#5C1D25] text-[#5C1D25] hover:bg-[#5C1D25] hover:text-white transition-colors text-xs h-9" 
                         asChild
                       >
-                        <a href={items.contatoParceira} target="_blank" rel="noreferrer">
-                          Contatar Alana
+                        <a href={items.portfolioParceira} target="_blank" rel="noreferrer">
+                          Portfólio
                         </a>
                       </Button>
-                    ) : (
-                      items.deploy && (
-                        <Button 
-                          className="w-full bg-[#5C1D25] hover:opacity-90 transition-opacity text-white" 
-                          asChild
-                        >
-                          <a href={items.deploy} target="_blank" rel="noreferrer">Ver Demo</a>
-                        </Button>
-                      )
                     )}
                   </div>
-                  <Button variant="outline" className="w-full border-slate-300" asChild>
-                    <a href={items.github} target="_blank" rel="noreferrer">Seu GitHub</a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-          {/* SEÇÃO PROJETOS DESENVOLVIDOS */}
-          <div className="flex items-center gap-4 mb-12 mt-9">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">
-              Projetos Desenvolvidos
-            </h2>
-            <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
-          </div>          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projetos.map((projeto) => (
-              <Card key={projeto.id} className="overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 border-slate-200">
-                <div className="relative h-52 w-full">
-                  <Image src={projeto.imagem} alt={projeto.titulo} fill className="object-cover transition-transform duration-500 hover:scale-105" />
                 </div>
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-xl">{projeto.titulo}</CardTitle>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {projeto.tags.map(tag => (
-                      <span key={tag} className="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded-md uppercase font-bold border border-slate-200">{tag}</span>
-                    ))}
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <CardDescription className="text-slate-600">{projeto.descricao}</CardDescription>
-                </CardContent>
-                <CardFooter className="flex justify-between gap-4 pt-4">
-                  <Button variant="outline" className="w-full border-slate-300" asChild>
-                    <a href={projeto.github} target="_blank" rel="noreferrer">GitHub</a>
+              )}
+
+              {/* Seção de Links do Projeto (Demo e GitHub) */}
+              <div className="flex gap-3 w-full mt-1">
+                {items.deploy && (
+                  <Button 
+                    className="w-full bg-slate-800 hover:bg-slate-700 transition-colors text-white" 
+                    asChild
+                  >
+                    <a href={items.deploy} target="_blank" rel="noreferrer">Ver Demo</a>
                   </Button>
-                  {projeto.deploy && (
-                    <Button className="w-full bg-[#5C1D25] hover:opacity-90 transition-opacity text-white" asChild>
-                      <a href={projeto.deploy} target="_blank" rel="noreferrer">Ver Demo</a>
-                    </Button>
-                  )}
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        </section>
+                )}
+                
+                {items.github && (
+                  <Button variant="outline" className="w-full border-slate-300" asChild>
+                    <a href={items.github} target="_blank" rel="noreferrer">GitHub</a>
+                  </Button>
+                )}
+              </div>
+            </CardFooter>
+          </Card>
+        ))}
+      </div>
+
+      {/* CABEÇALHO: PROJETOS DESENVOLVIDOS */}
+      <div className="flex items-center gap-4 mb-12 mt-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">
+          Projetos Desenvolvidos
+        </h2>
+        <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
+      </div>          
+      
+      {/* GRID: PROJETOS DESENVOLVIDOS */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projetos.map((projeto) => (
+          <Card key={projeto.id} className="overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 border-slate-200">
+            <div className="relative h-52 w-full">
+              <Image src={projeto.imagem} alt={projeto.titulo} fill className="object-cover transition-transform duration-500 hover:scale-105" />
+            </div>
+            
+            <CardHeader className="pb-2">
+              <CardTitle className="text-xl">{projeto.titulo}</CardTitle>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {projeto.tags.map(tag => (
+                  <span key={tag} className="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded-md uppercase font-bold border border-slate-200">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </CardHeader>
+            
+            <CardContent className="flex-grow">
+              <CardDescription className="text-slate-600">{projeto.descricao}</CardDescription>
+            </CardContent>
+            
+            <CardFooter className="flex justify-between gap-4 pt-4">
+              <Button variant="outline" className="w-full border-slate-300" asChild>
+                <a href={projeto.github} target="_blank" rel="noreferrer">GitHub</a>
+              </Button>
+              {projeto.deploy && (
+                <Button className="w-full bg-[#5C1D25] hover:opacity-90 transition-opacity text-white" asChild>
+                  <a href={projeto.deploy} target="_blank" rel="noreferrer">Ver Demo</a>
+                </Button>
+              )}
+            </CardFooter>
+          </Card>
+        ))}
+      </div>
+    </section>
+        
         {/* Seção de Contatos */}
         <section className="flex flex-col items-center bg-[#ececec] py-20 px-6">
           <div className="flex items-center gap-4 mb-12 w-full max-w-4xl">
