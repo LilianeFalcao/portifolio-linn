@@ -1,55 +1,71 @@
 "use client"
 import styled from "styled-components"
 
-
 export const SectionInicial = styled.section`
-    /* Adicione as aspas simples em volta da URL */
-    background-image: url('/wallpaper.png'); 
-    background-size: cover;      
-    background-position: center; 
-    background-repeat: no-repeat; 
-    
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; 
-    
+    justify-content: center;
+
     width: 100%;
-    height: 100vh; /* Garante que ocupa a tela toda */
-    padding: 2rem;
-    position: relative; /* Importante para o alinhamento dos filhos */
+    min-height: 100vh;
+
+    position: relative;
+    overflow: hidden;
 `
 
 export const Titulo = styled.h1`
-    margin-top: 8vh; 
-    font-size: 3rem;
-    text-align: center;
+    font-size: clamp(3rem, 6vw, 7rem);
+    font-weight: 450;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+
+    margin: 0;
+
+    overflow: visible;
+
+    position: relative;
+
+    text-rendering: geometricPrecision;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 `
+
 export const Subtitulo = styled.h2`
-    text-align: center;
-    color: #636363;
+    margin: 0;
+
+    font-weight: 450;
+
+    -webkit-font-smoothing: antialiased;
 `
+
 export const MenuLateral = styled.aside`
     position: fixed;
     top: 0;
     right: 0;
+
     width: 80px;
+
     display: flex;
     justify-content: center;
-    min-height: 100vh;
     align-items: center;
+
+    min-height: 100vh;
+
+    z-index: 50;
 
     ul{
         display: flex;
         flex-direction: column;
         gap: 20px;
-    
+
         li{
             width: 35px;
             transition: 0.3s ease-in-out;
-        
-        &:hover{
-            transform: scale(1.2);
+
+            &:hover{
+                transform: scale(1.2);
             }
         }
     }

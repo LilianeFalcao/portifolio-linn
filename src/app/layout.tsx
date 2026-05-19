@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { BodyContainer } from "@/styles/SMainIndex";
+import {
+  DM_Serif_Display,
+  Cormorant_Garamond,
+} from "next/font/google";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,9 +17,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const dmSerif = DM_Serif_Display({
+  variable: "--font-dm-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
+
 export const metadata: Metadata = {
   title: "Linn de Oliveira Falcão",
-  description: "Portifólio Web",
+  description: "Portfólio Web",
 };
 
 export default function RootLayout({
@@ -24,12 +40,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
-      <BodyContainer
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    <html lang="pt-br" suppressHydrationWarning>
+      <body
+        className={`
+          ${geistSans.variable}
+          ${geistMono.variable}
+          ${dmSerif.variable}
+          ${cormorant.variable}
+          
+          min-h-screen
+          bg-black
+          text-white
+          antialiased
+        `}
       >
         {children}
-      </BodyContainer>
+      </body>
     </html>
   );
 }

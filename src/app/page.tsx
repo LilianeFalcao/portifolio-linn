@@ -1,16 +1,16 @@
 "use client";
 
+import * as React from "react"
+
 import Image from "next/image";
+import Hero_Bg from "@/assets/hero-bg.png"
+import Hero_Bg_Mob from "@/assets/hero-bg-mobile.png"
 import linnCommerce from "@/assets/linnCommerce.png"
 import TheOwl from "@/assets/TheOwlHouse.png"
 import runas from "@/assets/Runas.png"
 import jornadaL from "@/assets/jornada.png"
 import Bambole from "@/assets/bambole.jpg"
-import Wallpaper from "@/assets/wallpaper.png"
-import WallpaperMobile from "@/assets/wallpaper_mobile.png"
 import linkedin from "@/assets/linkedin.svg"
-import * as React from "react"
-
 import {
   SectionInicial, 
   Titulo, 
@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/card"
 
 import { Button } from "@/components/ui/button"
+
 import StatusBadge from "@/components/statusBadge";
 import Skills from "@/components/skills";
 import MenuLateral from "@/components/asideMenuBar";
@@ -88,61 +89,139 @@ export default function Home() {
     <>
     <MenuLateral /> 
       <main className="overflow-x-hidden">
-        <SectionInicial 
-          style={{ 
-            '--bg-desktop': `url(${Wallpaper.src})`,
-            '--bg-mobile': `url(${WallpaperMobile.src})` 
-          } as React.CSSProperties}
-          className="md:pl-24 lg:pl-32 relative min-h-screen flex flex-col items-center justify-end md:justify-center md:items-start px-6 md:px-20 lg:px-32 bg-cover bg-center bg-[image:var(--bg-mobile)] md:bg-[image:var(--bg-desktop)] pb-16 md:pb-0"
-        >
-          {/* Container Unificado de Texto e Botões */}
-          <div className="z-10 flex flex-col items-center md:items-start w-full md:max-w-xl lg:max-w-2xl mb-16 md:mb-0 -translate-y-12 md:translate-y-0">            
-            <div className="w-full md:max-w-[40%]">
-              <Titulo className="text-center md:text-left text-3xl md:text-6xl lg:text-7xl text-white md:text-[#1a1a1a] drop-shadow-lg leading-tight">
-                Linn de <br className="hidden md:block" /> Oliveira Falcão
-              </Titulo>
-              
-              <Subtitulo className="mt-1 mb-3 text-center md:text-left text-white/80 md:text-[#333] text-lg md:text-2xl font-medium">
-                Full stack Developer
-              </Subtitulo>
-              </div>
-              <div className="flex justify-center md:justify-start">
-                <StatusBadge/>
-              </div>
-            {/* Bloco de Botões */}
-            <div className="mt-8 flex flex-col md:flex-row items-center md:items-start gap-4 w-full md:w-auto">
-              <a href="mailto:falcao.licontato@gmail.com" target="_blank"  className="w-full md:w-auto">
-                <button 
-                className="w-full md:w-[200px] h-[50px] rounded-[10px] bg-[#5C1D25] text-white font-bold transition-all hover:scale-105 cursor-pointer shadow-lg">
-                Contate-me
-              </button>
-              </a>
-              <a href="/Curriculo.pdf" download="Curriculo_Liliane_Oliveira_Falcao.pdf" className="w-full md:w-auto">
-                <button 
-                  className="w-full md:w-[200px] h-[50px] rounded-[10px] 
-                  border-2 border-white md:border-[#5C1D25] 
-                  text-white md:text-[#5C1D25] 
-                  font-bold transition-all 
-                  hover:bg-white hover:text-[#5C1D25] 
-                  md:hover:bg-[#5C1D25] md:hover:text-white 
-                  hover:scale-105 cursor-pointer"
-                >
-                  Currículo
-                </button>
-              </a>
-            </div>
+      <SectionInicial
+            className="
+              md:px-20 lg:px-24
+              relative min-h-screen
+              flex flex-col
+              items-center justify-end
+              md:justify-center md:items-start
+              px-6 md:px-20 lg:px-32
+              pb-16 md:pb-0
+              overflow-hidden
+            "
+          >
+          {/* Background Mobile */}
+          <div className="absolute inset-0 md:hidden -z-10">
+            <Image
+              src={Hero_Bg_Mob}
+              alt=""
+              fill
+              priority
+              className="object-cover"
+            />
           </div>
 
-          {/* Mouse Scroll */}
-          <div className="absolute bottom-10 right-10 hidden lg:flex flex-col items-center gap-2">
-            <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
-            </div>
-            <span className="text-white/80 text-[10px] uppercase tracking-[0.2em] font-bold">
-              Scroll
-            </span>
+          {/* Background Desktop */}
+          <div className="absolute inset-0 hidden md:block -z-10 bg-[#ececec]">
+            <Image
+              src={Hero_Bg}
+              alt=""
+              fill
+              priority
+              className="object-cover object-right"
+            />
           </div>
-        </SectionInicial>
+            {/* Container Unificado de Texto e Botões */}
+            <div
+              className="
+                z-10
+                flex flex-col
+                items-center md:items-start
+                w-full
+                mb-16 md:mb-0
+              "
+            >
+
+              <div className="w-full max-w-[520px]">
+                <Titulo className="text-center md:text-left text-white md:text-[#1a1a1a]">
+                  Linn de <br />
+                  Oliveira <br />
+                  Falcão
+                </Titulo>
+
+                <Subtitulo className="mt-1 mb-3 text-center md:text-left text-white/80 md:text-[#333] text-lg md:text-2xl font-medium">
+                  Full stack Developer
+                </Subtitulo>
+              </div>
+
+              <div className="flex justify-center md:justify-start">
+                <StatusBadge />
+              </div>
+
+              {/* Bloco de Botões */}
+              <div
+                className="
+                  mt-8
+                  flex flex-col
+                  items-center md:items-start
+                  gap-4
+                  w-full
+                  md:w-fit
+                "
+              >
+                
+                <a
+                  href="mailto:falcao.licontato@gmail.com"
+                  target="_blank"
+                  className="w-full md:w-fit"
+                >
+                  <button
+                    className="
+                      w-full md:w-[220px]
+                      h-[50px]
+                      rounded-[10px]
+                      bg-[#5C1D25]
+                      text-white
+                      font-bold
+                      transition-all
+                      hover:scale-105
+                      cursor-pointer
+                      shadow-lg
+                    "
+                  >
+                    Contate-me
+                  </button>
+                </a>
+
+                <a
+                  href="/Curriculo.pdf"
+                  download="Curriculo_Liliane_Oliveira_Falcao.pdf"
+                  className="w-full md:w-fit"
+                >
+                  <button
+                    className="
+                      w-full md:w-[220px]
+                      h-[50px]
+                      rounded-[10px]
+                      border-2 border-[#5C1D25]
+                      text-[#5C1D25]
+                      bg-transparent
+                      font-bold
+                      transition-all duration-300
+                      hover:bg-[#5C1D25]
+                      hover:text-white
+                      hover:scale-105
+                      cursor-pointer
+                    "
+                  >
+                    Currículo
+                  </button>
+                </a>
+              </div>
+            </div>
+
+            {/* Mouse Scroll */}
+            <div className="absolute bottom-10 right-10 hidden lg:flex flex-col items-center gap-2">
+              <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center">
+                <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+              </div>
+
+              <span className="text-white/80 text-[10px] uppercase tracking-[0.2em] font-bold">
+                Scroll
+              </span>
+            </div>
+          </SectionInicial>
 
         {/* SEÇÃO SOBRE */}
         <section className="flex flex-col items-center bg-[#ececec] py-16 px-6">
@@ -171,143 +250,143 @@ export default function Home() {
             <Skills />
           </div>
         </section>
-          {/* SEÇÃO PROJETOS */}
-<section className="py-20 px-6 max-w-7xl mx-auto">
-  
-  {/* CABEÇALHO: PROJETOS EM DESENVOLVIMENTO */}
-  <div className="flex items-center gap-4 mb-12">
-    <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">
-      Projetos em Desenvolvimento
-    </h2>
-    <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
-  </div>          
-  
-      {/* GRID: PROJETOS EM DESENVOLVIMENTO */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {desenvolvimento.map((items) => (
-          <Card key={items.id} className="overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 border-slate-200">
-            <div className="relative h-52 w-full">
-              <Image src={items.imagem} alt={items.titulo} fill className="object-cover transition-transform duration-500 hover:scale-105" />
-            </div>
-            
-            <CardHeader className="pb-2">
-              <CardTitle className="text-xl">{items.titulo}</CardTitle>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {items.tags.map(tag => (
-                  <span key={tag} className="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded-md uppercase font-bold border border-slate-200">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </CardHeader>
-            
-            <CardContent className="flex-grow">
-              <CardDescription className="text-slate-600">{items.descricao}</CardDescription>
-            </CardContent>
-            
-            {/* FOOTER ALTERADO COM A SEÇÃO DA PARCEIRA */}
-            <CardFooter className="flex flex-col gap-3 pt-4">
-              
-              {/* Seção Exclusiva da Parceira (Alana) */}
-              {items.contatoParceira && (
-                <div className="flex flex-col gap-2 w-full bg-slate-50 p-3 rounded-lg border border-slate-100">
-                  <span className="text-[10px] font-bold text-slate-500 uppercase text-center tracking-wider">
-                    Co-criadora: Alana Lopes Matos
-                  </span>
-                  <div className="flex gap-2 w-full">
-                    <Button 
-                      className="w-full bg-[#5C1D25] hover:opacity-90 transition-opacity text-white text-xs h-9" 
-                      asChild
-                    >
-                      <a href={items.contatoParceira} target="_blank" rel="noreferrer">
-                        <Image src={linkedin} alt="linkedin icon" width={17} height={17} className="opacity-90 invert" />
-                        Contate Alana
-                      </a>
-                    </Button>
+        {/* SEÇÃO PROJETOS */}
+        <section className="py-20 px-6 max-w-7xl mx-auto">
+          
+          {/* CABEÇALHO: PROJETOS EM DESENVOLVIMENTO */}
+          <div className="flex items-center gap-4 mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">
+              Projetos em Desenvolvimento
+            </h2>
+            <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
+          </div>          
+          
+              {/* GRID: PROJETOS EM DESENVOLVIMENTO */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {desenvolvimento.map((items) => (
+                  <Card key={items.id} className="overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 border-slate-200">
+                    <div className="relative h-52 w-full">
+                      <Image src={items.imagem} alt={items.titulo} fill className="object-cover transition-transform duration-500 hover:scale-105" />
+                    </div>
                     
-                    {items.portfolioParceira && (
-                      <Button 
-                        variant="outline" 
-                        className="w-full border-[#5C1D25] text-[#5C1D25] hover:bg-[#5C1D25] hover:text-white transition-colors text-xs h-9" 
-                        asChild
-                      >
-                        <a href={items.portfolioParceira} target="_blank" rel="noreferrer">
-                          Portfólio
-                        </a>
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              )}
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-xl">{items.titulo}</CardTitle>
+                      <div className="flex flex-wrap gap-2 mt-2">
+                        {items.tags.map(tag => (
+                          <span key={tag} className="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded-md uppercase font-bold border border-slate-200">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent className="flex-grow">
+                      <CardDescription className="text-slate-600">{items.descricao}</CardDescription>
+                    </CardContent>
+                    
+                    {/* FOOTER ALTERADO COM A SEÇÃO DA PARCEIRA */}
+                    <CardFooter className="flex flex-col gap-3 pt-4">
+                      
+                      {/* Seção Exclusiva da Parceira (Alana) */}
+                      {items.contatoParceira && (
+                        <div className="flex flex-col gap-2 w-full bg-slate-50 p-3 rounded-lg border border-slate-100">
+                          <span className="text-[10px] font-bold text-slate-500 uppercase text-center tracking-wider">
+                            Co-criadora: Alana Lopes Matos
+                          </span>
+                          <div className="flex gap-2 w-full">
+                            <Button 
+                              className="w-full bg-[#5C1D25] hover:opacity-90 transition-opacity text-white text-xs h-9" 
+                              asChild
+                            >
+                              <a href={items.contatoParceira} target="_blank" rel="noreferrer">
+                                <Image src={linkedin} alt="linkedin icon" width={17} height={17} className="opacity-90 invert" />
+                                Contate Alana
+                              </a>
+                            </Button>
+                            
+                            {items.portfolioParceira && (
+                              <Button 
+                                variant="outline" 
+                                className="w-full border-[#5C1D25] text-[#5C1D25] hover:bg-[#5C1D25] hover:text-white transition-colors text-xs h-9" 
+                                asChild
+                              >
+                                <a href={items.portfolioParceira} target="_blank" rel="noreferrer">
+                                  Portfólio
+                                </a>
+                              </Button>
+                            )}
+                          </div>
+                        </div>
+                      )}
 
-              {/* Seção de Links do Projeto (Demo e GitHub) */}
-              <div className="flex gap-3 w-full mt-1">
-                {items.deploy && (
-                  <Button 
-                    className="w-full bg-slate-800 hover:bg-slate-700 transition-colors text-white" 
-                    asChild
-                  >
-                    <a href={items.deploy} target="_blank" rel="noreferrer">Ver Demo</a>
-                  </Button>
-                )}
-                
-                {items.github && (
-                  <Button variant="outline" className="w-full border-slate-300" asChild>
-                    <a href={items.github} target="_blank" rel="noreferrer">GitHub</a>
-                  </Button>
-                )}
-              </div>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-
-      {/* CABEÇALHO: PROJETOS DESENVOLVIDOS */}
-      <div className="flex items-center gap-4 mb-12 mt-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">
-          Projetos Desenvolvidos
-        </h2>
-        <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
-      </div>          
-      
-      {/* GRID: PROJETOS DESENVOLVIDOS */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projetos.map((projeto) => (
-          <Card key={projeto.id} className="overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 border-slate-200">
-            <div className="relative h-52 w-full">
-              <Image src={projeto.imagem} alt={projeto.titulo} fill className="object-cover transition-transform duration-500 hover:scale-105" />
-            </div>
-            
-            <CardHeader className="pb-2">
-              <CardTitle className="text-xl">{projeto.titulo}</CardTitle>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {projeto.tags.map(tag => (
-                  <span key={tag} className="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded-md uppercase font-bold border border-slate-200">
-                    {tag}
-                  </span>
+                      {/* Seção de Links do Projeto (Demo e GitHub) */}
+                      <div className="flex gap-3 w-full mt-1">
+                        {items.deploy && (
+                          <Button 
+                            className="w-full bg-slate-800 hover:bg-slate-700 transition-colors text-white" 
+                            asChild
+                          >
+                            <a href={items.deploy} target="_blank" rel="noreferrer">Ver Demo</a>
+                          </Button>
+                        )}
+                        
+                        {items.github && (
+                          <Button variant="outline" className="w-full border-slate-300" asChild>
+                            <a href={items.github} target="_blank" rel="noreferrer">GitHub</a>
+                          </Button>
+                        )}
+                      </div>
+                    </CardFooter>
+                  </Card>
                 ))}
               </div>
-            </CardHeader>
-            
-            <CardContent className="flex-grow">
-              <CardDescription className="text-slate-600">{projeto.descricao}</CardDescription>
-            </CardContent>
-            
-            <CardFooter className="flex justify-between gap-4 pt-4">
-              <Button variant="outline" className="w-full border-slate-300" asChild>
-                <a href={projeto.github} target="_blank" rel="noreferrer">GitHub</a>
-              </Button>
-              {projeto.deploy && (
-                <Button className="w-full bg-[#5C1D25] hover:opacity-90 transition-opacity text-white" asChild>
-                  <a href={projeto.deploy} target="_blank" rel="noreferrer">Ver Demo</a>
-                </Button>
-              )}
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
-    </section>
-        
+
+              {/* CABEÇALHO: PROJETOS DESENVOLVIDOS */}
+              <div className="flex items-center gap-4 mb-12 mt-16">
+                <h2 className="text-3xl md:text-4xl font-bold text-[#5C1D25] uppercase tracking-wider">
+                  Projetos Desenvolvidos
+                </h2>
+                <div className="h-[2px] flex-1 bg-gradient-to-r from-[#5C1D25] to-transparent" />
+              </div>          
+              
+              {/* GRID: PROJETOS DESENVOLVIDOS */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {projetos.map((projeto) => (
+                  <Card key={projeto.id} className="overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 border-slate-200">
+                    <div className="relative h-52 w-full">
+                      <Image src={projeto.imagem} alt={projeto.titulo} fill className="object-cover transition-transform duration-500 hover:scale-105" />
+                    </div>
+                    
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-xl">{projeto.titulo}</CardTitle>
+                      <div className="flex flex-wrap gap-2 mt-2">
+                        {projeto.tags.map(tag => (
+                          <span key={tag} className="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded-md uppercase font-bold border border-slate-200">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent className="flex-grow">
+                      <CardDescription className="text-slate-600">{projeto.descricao}</CardDescription>
+                    </CardContent>
+                    
+                    <CardFooter className="flex justify-between gap-4 pt-4">
+                      <Button variant="outline" className="w-full border-slate-300" asChild>
+                        <a href={projeto.github} target="_blank" rel="noreferrer">GitHub</a>
+                      </Button>
+                      {projeto.deploy && (
+                        <Button className="w-full bg-[#5C1D25] hover:opacity-90 transition-opacity text-white" asChild>
+                          <a href={projeto.deploy} target="_blank" rel="noreferrer">Ver Demo</a>
+                        </Button>
+                      )}
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+            </section>
+
         {/* Seção de Contatos */}
         <section className="flex flex-col items-center bg-[#ececec] py-20 px-6">
           <div className="flex items-center gap-4 mb-12 w-full max-w-4xl">
